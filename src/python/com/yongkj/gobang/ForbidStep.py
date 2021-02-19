@@ -10,8 +10,8 @@ class ForbidStep(object):
         self.board = [[0 for n in range(15)] for i in range(15)]
         self.total = 0
 
-        # ÈýÈý½ûÊÖ
-        # ÓÐÆÕÍ¨»îÈýµÄÈýÈý½ûÊÖ
+        # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        # ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         self.ThreeThree = []
         self.ThreeThree_blank = []
 
@@ -44,7 +44,7 @@ class ForbidStep(object):
                           [-1, 0, 0], [-2, 0, 1], [-3, 0, 1], [-4, 0, 1], [-5, 0, 2]]
         self.FourFour.append(self.FourFour5)
 
-        # ³¤Á¬½ûÊÖ
+        # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         self.LongLong = []
         self.LongLong1 = [[0, 0, 1], [0, 1, 1], [0, -1, 1], [0, -2, 1], [0, -3, 1], [0, -4, 1]]
         self.LongLong.append(self.LongLong1)
@@ -261,7 +261,7 @@ class ForbidStep(object):
         # print(len(ThreeThree))
         # print()
 
-    def get_spin_pos(self, x, y):  # ·µ»ØÄæÊ±ÕëÐý×ª45¶ÈºóµÄ×ø±ê
+    def get_spin_pos(self, x, y):  # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½×ª45ï¿½Èºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if x == 0 or y == 0:
             row = x - y
             col = x + y
@@ -270,7 +270,7 @@ class ForbidStep(object):
             col = (x + y) // 2
         return row, col
 
-    def judge_the_pos(self, row, col, pos):  # ÅÐ¶Ïµ±Ç°Î»ÖÃÊÇ·ñ·ûºÏ½ûÊÖµãµÄÒªÇó
+    def judge_the_pos(self, row, col, pos):  # ï¿½Ð¶Ïµï¿½Ç°Î»ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Ï½ï¿½ï¿½Öµï¿½ï¿½ï¿½Òªï¿½ï¿½
         x = row - pos[1]
         y = col + pos[0]
         if 0 <= x <= 14 and 0 <= y <= 14:
@@ -278,7 +278,7 @@ class ForbidStep(object):
                 return True
         return False
 
-    def judge_the_pos_blank(self, row, col, pos1, pos2):  # ÅÐ¶Ï»îÈýÁ½¶Ë×îÍâ±ßµÄ¿Õ¸ñÊÇ·ñ·ûºÏ¹¹³É»îÈýµÄÒªÇó
+    def judge_the_pos_blank(self, row, col, pos1, pos2):  # ï¿½Ð¶Ï»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ßµÄ¿Õ¸ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Ï¹ï¿½ï¿½É»ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½
         x1 = row - pos1[1]
         y1 = col + pos1[0]
         x2 = row - pos2[1]
@@ -294,14 +294,14 @@ class ForbidStep(object):
                 return True
         return False
 
-    def charge_three_forbid(self, row, col):  # ÅÐ¶ÏÈýÈý½ûÊÖ
+    def charge_three_forbid(self, row, col):  # ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         ThreeThree = copy.deepcopy(self.ThreeThree)
         ThreeThree_bank = copy.deepcopy(self.ThreeThree_blank)
 
         for i in range(len(ThreeThree)):
-            for k in range(8):  # Ðý×ª8´Î£¬Ã¿´ÎÄæÊ±ÕëÑ¡Ôñ45¶È
+            for k in range(8):  # ï¿½ï¿½×ª8ï¿½Î£ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ñ¡ï¿½ï¿½45ï¿½ï¿½
 
-                for j in range(len(ThreeThree[i])):  # ·ûºÏÈýÈý½ûÊÖµÄ×ø±êÐý×ª
+                for j in range(len(ThreeThree[i])):  # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ª
                     x = ThreeThree[i][j][0]
                     y = ThreeThree[i][j][1]
                     x1, y1 = self.get_spin_pos(x, y)
@@ -309,7 +309,7 @@ class ForbidStep(object):
                     ThreeThree[i][j][1] = y1
 
                 if i < len(ThreeThree_bank):
-                    for j in range(len(ThreeThree_bank[i])):  # ÈýÊÖ½ûÊÖÖÐ»îÈýÁ½¶ËµÄ¿Õ¸ñÐý×ª
+                    for j in range(len(ThreeThree_bank[i])):  # ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ËµÄ¿Õ¸ï¿½ï¿½ï¿½×ª
                         x = ThreeThree_bank[i][j][0]
                         y = ThreeThree_bank[i][j][1]
                         x1, y1 = self.get_spin_pos(x, y)
@@ -319,7 +319,7 @@ class ForbidStep(object):
                 flag = True
 
                 for j in range(len(ThreeThree[i])):
-                    if self.judge_the_pos(row, col, ThreeThree[i][j]):  # ÅÐ¶Ïrow,col¼ÓÉÏÐý×ªºóµÄ×ø±êÊÇ·ñ·ûºÏÈýÈý½ûÊÖ
+                    if self.judge_the_pos(row, col, ThreeThree[i][j]):  # ï¿½Ð¶ï¿½row,colï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                         continue
                     else:
                         flag = False
@@ -327,7 +327,7 @@ class ForbidStep(object):
 
                 if i < len(ThreeThree_bank):
                     if flag:
-                        for j in range(len(ThreeThree_bank) // 2):  # ÅÐ¶ÏÈýÈý½ûÊÖÖÐ»îÈýÁ½¶ËµÄ¿Õ¸ñÊÇ·ñÂú×ã¹¹³É»îÈýµÄÌõ¼þ
+                        for j in range(len(ThreeThree_bank) // 2):  # ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ËµÄ¿Õ¸ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ã¹¹ï¿½É»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                             c = 0
                             if self.judge_the_pos_blank(-col, row, ThreeThree_bank[i][c], ThreeThree_bank[i][c + 1]):
                                 c += 2
@@ -345,15 +345,15 @@ class ForbidStep(object):
 
         # print(ThreeThree)
 
-    def charge_four_forbid(self, row, col):  # ÅÐ¶ÏËÄËÄ½ûÊÖ
+    def charge_four_forbid(self, row, col):  # ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½Ä½ï¿½ï¿½ï¿½
         FourFour = copy.deepcopy(self.FourFour)
 
         for i in range(len(FourFour)):
-            for k in range(8):  # Ðý×ª8´Î£¬Ã¿´ÎÄæÊ±ÕëÑ¡Ôñ45¶È
+            for k in range(8):  # ï¿½ï¿½×ª8ï¿½Î£ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ñ¡ï¿½ï¿½45ï¿½ï¿½
 
                 flag = True
 
-                for j in range(len(FourFour[i])):  # ·ûºÏËÄËÄ½ûÊÖµÄ×ø±êÐý×ª
+                for j in range(len(FourFour[i])):  # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ª
                     x = FourFour[i][j][0]
                     y = FourFour[i][j][1]
                     x1, y1 = self.get_spin_pos(x, y)
@@ -361,7 +361,7 @@ class ForbidStep(object):
                     FourFour[i][j][1] = y1
 
                 for j in range(len(FourFour[i])):
-                    if self.judge_the_pos(row, col, FourFour[i][j]):  # ÅÐ¶Ïrow,col¼ÓÉÏÐý×ªºóµÄ×ø±êÊÇ·ñ·ûºÏËÄËÄ½ûÊÖ
+                    if self.judge_the_pos(row, col, FourFour[i][j]):  # ï¿½Ð¶ï¿½row,colï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä½ï¿½ï¿½ï¿½
                         continue
                     else:
                         flag = False
@@ -374,13 +374,13 @@ class ForbidStep(object):
 
         # print(FourFour)
 
-    def charge_long_forbid(self, row, col):  # ÅÐ¶Ï³¤Á¬½ûÊÖ
+    def charge_long_forbid(self, row, col):  # ï¿½Ð¶Ï³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         LongLong = copy.deepcopy(self.LongLong)
 
         for i in range(len(LongLong)):
-            for k in range(8):  # Ðý×ª8´Î£¬Ã¿´ÎÄæÊ±ÕëÑ¡Ôñ45¶È
+            for k in range(8):  # ï¿½ï¿½×ª8ï¿½Î£ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ñ¡ï¿½ï¿½45ï¿½ï¿½
 
-                for j in range(len(LongLong[i])):  # ·ûºÏ³¤Á¬½ûÊÖµÄ×ø±êÐý×ª
+                for j in range(len(LongLong[i])):  # ï¿½ï¿½ï¿½Ï³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ª
                     x = LongLong[i][j][0]
                     y = LongLong[i][j][1]
                     x1, y1 = self.get_spin_pos(x, y)
@@ -390,7 +390,7 @@ class ForbidStep(object):
                 flag = True
 
                 for j in range(len(LongLong[i])):
-                    if self.judge_the_pos(row, col, LongLong[i][j]):  # ÅÐ¶Ïrow,col¼ÓÉÏÐý×ªºóµÄ×ø±êÊÇ·ñ·ûºÏ³¤Á¬½ûÊÖ
+                    if self.judge_the_pos(row, col, LongLong[i][j]):  # ï¿½Ð¶ï¿½row,colï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Ï³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                         continue
                     else:
                         flag = False
@@ -401,7 +401,7 @@ class ForbidStep(object):
 
         return False
 
-    def change_one_to_zero(self):  # ½«[0,0,1]¸Ä³É[0,0,0]
+    def change_one_to_zero(self):  # ï¿½ï¿½[0,0,1]ï¿½Ä³ï¿½[0,0,0]
 
         ThreeThree = self.ThreeThree
         FourFour = self.FourFour
@@ -416,7 +416,7 @@ class ForbidStep(object):
         for i in range(len(LongLong)):
             LongLong[i][0][2] = 0
 
-    def deal_noobrobot_move(self, row, col):  # ÅÐ¶Ï²ËÄñ»úÆ÷ÈËµÄÏÂÒ»²½ÒÆ¶¯Î»ÖÃÊÇ·ñÎª½ûÊÖµã
+    def deal_noobrobot_move(self, row, col):  # ï¿½Ð¶Ï²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Æ¶ï¿½Î»ï¿½ï¿½ï¿½Ç·ï¿½Îªï¿½ï¿½ï¿½Öµï¿½
 
         self.change_one_to_zero()
         if self.charge_three_forbid(row, col):
@@ -439,26 +439,26 @@ class ForbidStep(object):
                         col = chr(ord("A") + j)
                         s = ""
                         s += row + col
-                        print("ºÜ²»ÐÒ°¡£¬Äã²ÈÖÐÁËµØÀ×°ãµÄ½ûÊÖµã£¡Äã²ÈÖÐµÄÈýÈý½ûÊÖµãÎª (%s) £¡" % (s))
+                        print("ï¿½Ü²ï¿½ï¿½Ò°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½×°ï¿½ï¿½Ä½ï¿½ï¿½Öµã£¡ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½Îª (%s) ï¿½ï¿½" % (s))
 
                     if self.charge_four_forbid(i, j):
                         row = chr(ord("A") + i)
                         col = chr(ord("A") + j)
                         s = ""
                         s += row + col
-                        print("ºÜ²»ÐÒ°¡£¬Äã²ÈÖÐÁËµØÀ×°ãµÄ½ûÊÖµã£¡Äã²ÈÖÐµÄËÄËÄ½ûÊÖµãÎª (%s) £¡" % (s))
+                        print("ï¿½Ü²ï¿½ï¿½Ò°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½×°ï¿½ï¿½Ä½ï¿½ï¿½Öµã£¡ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½Ä½ï¿½ï¿½Öµï¿½Îª (%s) ï¿½ï¿½" % (s))
 
                     if self.charge_long_forbid(i, j):
                         row = chr(ord("A") + i)
                         col = chr(ord("A") + j)
                         s = ""
                         s += row + col
-                        print("ºÜ²»ÐÒ°¡£¬Äã²ÈÖÐÁËµØÀ×°ãµÄ½ûÊÖµã£¡Äã²ÈÖÐµÄ³¤Á¬½ûÊÖµãÎª (%s) £¡" % (s))
+                        print("ï¿½Ü²ï¿½ï¿½Ò°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½×°ï¿½ï¿½Ä½ï¿½ï¿½Öµã£¡ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÄ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½Îª (%s) ï¿½ï¿½" % (s))
 
-        player_input = input("ÇëÊäÈëÄãÏëÒÆ¶¯µÄÎ»ÖÃ:")  # Íæ¼ÒÊäÈëÏÂÆåµÄ×ø±ê
-        x = ord(player_input[0].upper()) - ord("A")  # ×ª»»×ø±ê
+        player_input = input("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½Î»ï¿½ï¿½:")  # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        x = ord(player_input[0].upper()) - ord("A")  # ×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         y = ord(player_input[1].upper()) - ord("A")
-        self.board[x][y] = 1  # ±ê¼ÇÎªºÚÆå
+        self.board[x][y] = 1  # ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½
         self.total += 1
 
         self.test()
